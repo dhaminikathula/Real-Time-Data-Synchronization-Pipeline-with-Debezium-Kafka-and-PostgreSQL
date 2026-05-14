@@ -26,13 +26,13 @@ The system ensures strict decoupling, high availability, and **at-least-once mes
 
 ```mermaid
 graph LR
-    A[Client] -->|Write Operations| B(Write Service)
-    B -->|Persists Data| C[(PostgreSQL)]
-    C -.->|WAL Changes| D[Debezium Connector]
-    D -->|Streams CDC Events| E[Apache Kafka]
-    E -->|Consumes Events| F(Read Service)
-    F -->|Upserts/Deletes| G[(MongoDB)]
-    H[Client] -->|Read Queries| F
+    A["Client"] -->|"Write Operations"| B["Write Service"]
+    B -->|"Persists Data"| C[("PostgreSQL")]
+    C -.->|"WAL Changes"| D["Debezium Connector"]
+    D -->|"Streams CDC Events"| E["Apache Kafka"]
+    E -->|"Consumes Events"| F["Read Service"]
+    F -->|"Upserts/Deletes"| G[("MongoDB")]
+    H["Client"] -->|"Read Queries"| F
 ```
 
 1. **Write Service**: Manages write operations (Create, Update, Soft-Delete) against the PostgreSQL database.
