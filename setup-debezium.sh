@@ -19,6 +19,7 @@ curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" 
     "database.password": "password",
     "database.dbname": "products_db",
     "topic.prefix": "pg-server",
+    "decimal.handling.mode": "double",
     "database.server.name": "pg-server",
     "table.include.list": "public.products",
     "plugin.name": "pgoutput",
